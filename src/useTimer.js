@@ -4,18 +4,19 @@ const useTimer = (ini = 0) => {
   const [time, setTime] = useState(0);
 
   const isStart = "Your code here";
-  const active = "Your code here";
-  const refInterval = "Your code here";
+  const active = useRef(true);
+  const refInterval = useRef(0);
 
   const startTimer = () => {
-    "Your code here";
+    refInterval.current = setInterval(() => setTime((time) => time + 1), 1000);
     active.current.disabled = true;
   };
   const stopTimer = () => {
-    "Your code here";
+    clearInterval(refInterval.current);
+    active.current.disabled = false;
   };
   const resetTimer = () => {
-    "Your code here";
+    setTime(0);
     active.current.disabled = false;
   };
 
